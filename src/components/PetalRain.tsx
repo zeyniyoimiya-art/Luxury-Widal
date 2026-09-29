@@ -1,4 +1,4 @@
-// Easter egg: triple-click en el logo → lluvia elegante de pétalos + 🦍 dorado + frase caligráfica.
+// Easter egg: triple-click en el logo → lluvia elegante de pétalos + rosa dorada + frase caligráfica.
 // Con prefers-reduced-motion se muestra solo un mensaje estático (sin pétalos cayendo).
 import { useEffect, useMemo, useState } from "react";
 import { TAGLINE } from "../data";
@@ -60,12 +60,12 @@ export default function PetalRain() {
           />
         ))}
       </div>
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center" style={{ animation: "gorilla-in 5s ease both" }}>
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center" style={{ animation: "bloom-in 5s ease both" }}>
         <span
           className="text-[7rem] leading-none sm:text-[9rem]"
-          style={{ filter: "drop-shadow(0 0 22px rgba(217,168,108,0.75)) sepia(0.35) saturate(1.4)" }}
+          style={{ filter: "drop-shadow(0 0 22px rgba(217,168,108,0.75)) saturate(1.25)" }}
         >
-          🦍
+          🌹
         </span>
         <span className="gold-text mt-2 font-script text-5xl sm:text-6xl">{TAGLINE}</span>
       </div>
