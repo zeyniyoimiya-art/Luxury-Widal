@@ -1,0 +1,11 @@
+{
+  "name": "widal te informa",
+  "short_name": "Widal",
+  "description": "Blog editorial de lujo sobre WiMAX por Cruz Muños Luis Vidal",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#faf3e7",
+  "theme_color": "#b76e79",
+  "lang": "es",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
