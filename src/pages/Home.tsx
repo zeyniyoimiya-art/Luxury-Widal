@@ -45,12 +45,21 @@ export default function Home() {
           <div>
             <p className="hero-eyebrow eyebrow">Blog editorial · WiMAX · IEEE 802.16</p>
             <h1 className="mt-5 font-display text-[clamp(2.7rem,7.4vw,6rem)] font-semibold leading-none tracking-tight" aria-label={TITLE}>
-              {/* "widal te " en tinta y "informa" en oro rosa; los espacios van como NBSP
-                  porque un inline-block colapsa un espacio solo y las palabras se pegarían */}
-              {TITLE.split("").map((ch, i) => (
-                <span key={i} className="inline-block overflow-hidden align-bottom" aria-hidden="true" style={{ perspective: 600 }}>
-                  <span className={`hero-letter inline-block ${i >= 9 ? "gold-text" : "text-head"}`}>
-                    {ch === " " ? "\u00A0" : ch}
+              {/* Letras en spans para la animación GSAP (.hero-letter) y letras de "informa" en oro rosa.
+                  Cada palabra va en un contenedor whitespace-nowrap: sin eso, el navegador puede
+                  cortar a mitad de palabra porque cada letra es un inline-block. */}
+              {TITLE.split(" ").map((word, w, words) => (
+                <span key={w}>
+                  {w > 0 && " "}
+                  <span className="inline-block whitespace-nowrap" aria-hidden="true">
+                    {word.split("").map((ch, i) => {
+                      const idx = words.slice(0, w).reduce((n, x) => n + x.length + 1, 0) + i;
+                      return (
+                        <span key={i} className="inline-block overflow-hidden align-bottom" style={{ perspective: 600 }}>
+                          <span className={`hero-letter inline-block ${idx >= 9 ? "gold-text" : "text-head"}`}>{ch}</span>
+                        </span>
+                      );
+                    })}
                   </span>
                 </span>
               ))}
